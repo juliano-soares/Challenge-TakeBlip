@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [ApiController]
     public class RepositoriesController : ControllerBase
     {
         private readonly RepositoriesService _service;
@@ -17,6 +17,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [Route("/repositories")]
         public async Task<ActionResult<List<RepositorieData>>> Get()
         {
             var response = await _service.GetRepositoriesChallenge();
